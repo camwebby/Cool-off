@@ -1,28 +1,65 @@
-# Create T3 App
+# Cool-off (Special thanks to T3 app)
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Cool off is designed to enhance your Spotify experience by automatically skipping songs that you have added to a "skip playlist". 
 
-## What's next? How do I make an app with this?
+## Features
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- Automatically skips songs in your designated "skip playlist" while the app is running.
+- Provides real-time tracking of the currently playing track on Spotify.
+- Gives the ability to add and remove tracks from the "skip playlist" directly from the app.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## How it works
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+This application uses Spotify's Web API to fetch the currently playing track, the user's "skip playlist", and to control playback. 
 
-## Learn More
+## Getting Started
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+To get a local copy up and running, follow these simple steps.
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+### Prerequisites
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+- Node.js
+- npm
+- Spotify Developer Account
 
-## How do I deploy this?
+### Installation
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+1. Clone the repo:
+    ```sh
+    git clone https://github.com/yourusername/spotify-auto-skip-app.git
+    ```
+2. Install NPM packages:
+    ```sh
+    npm install
+    ```
+3. Register a new app on the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/) to get your `Client ID` and `Client Secret`.
+
+4. Create a `.env` file in the root of your project and insert your `Client ID` and `Client Secret`.
+    ```
+  CLIENT_ID=
+  CLIENT_SECRET=
+  REDIRECT_URI=http://localhost:3000/
+  AUTH_KEY=
+    ```
+5. Start the development server:
+    ```sh
+    npm run dev
+    ```
+
+## Usage
+
+Once you've started the app, login with your Spotify account and set your "skip playlist". The app will then listen to your current playback and skip any songs that are in your "skip playlist". 
+
+## Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
