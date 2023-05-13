@@ -41,6 +41,7 @@ To get a local copy up and running, follow these simple steps.
   REDIRECT_URI=http://localhost:3000/
   AUTH_KEY=
     ```
+    
 5. Start the development server:
     ```sh
     npm run dev
