@@ -35,12 +35,12 @@ To get a local copy up and running, follow these simple steps.
 3. Register a new app on the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/) to get your `Client ID` and `Client Secret`.
 
 4. Create a `.env` file in the root of your project and insert your `Client ID` and `Client Secret`.
-    ```
-  CLIENT_ID=
-  CLIENT_SECRET=
-  REDIRECT_URI=http://localhost:3000/
-  AUTH_KEY=
-    ```
+```
+  CLIENT_ID=xxx
+  CLIENT_SECRET=xxx
+  REDIRECT_URI=xxx
+  AUTH_KEY=xxx
+```
     
 5. Start the development server:
     ```sh
