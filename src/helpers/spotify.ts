@@ -14,7 +14,9 @@ export const skipToNextTrack = async (accessToken: string) => {
         Authorization: `Bearer ${accessToken}`,
       },
     });
-  } catch (error) {}
+  } catch (error) {
+    console.error(error);
+    throw error;
 };
 
 export const getUsersPlaylistByExactName = async (
@@ -62,7 +64,8 @@ export const getUsersPlaylistByExactName = async (
 
     return playlist;
   } catch (error) {
-    return "hey";
+    console.error(error);
+    throw error;
   }
 };
 
@@ -92,7 +95,8 @@ export const getTracksInPlaylist = async (
 
     return { ...tracks, playlistId: id, playlistName: playlist.name };
   } catch (error) {
-    return "hey";
+    console.error(error);
+    throw error;
   }
 };
 
@@ -109,7 +113,8 @@ export const getAccessToken = async (refreshToken: string) => {
 
     return token;
   } catch (error) {
-    return "hey";
+    console.error(error);
+    throw error;
   }
 };
 
@@ -158,7 +163,8 @@ export const removeTrackFromPlaylist = async (
 
     return tracks;
   } catch (error) {
-    return "hey";
+    console.error(error);
+    throw error;
   }
 };
 
@@ -181,6 +187,7 @@ export const addTrackToPlaylist = async (
 
     return tracks;
   } catch (error) {
-    return "hey";
+    console.error(error);
+    throw error;
   }
 };
