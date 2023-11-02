@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: "General Sans Variable";
-}
-
 .button {
   background: radial-gradient(
       107.5% 107.5% at 50% 215%,
@@ -41,4 +37,3 @@ body {
   transition: 1s all;
   width: calc(100% + 4px);
 }
-
