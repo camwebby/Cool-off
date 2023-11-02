@@ -19,7 +19,7 @@ To get a local copy up and running, follow these simple steps.
 ### Prerequisites
 
 - Node.js
-- npm
+- bun
 - Spotify Developer Account
 
 ### Installation
@@ -28,9 +28,9 @@ To get a local copy up and running, follow these simple steps.
     ```sh
     git clone https://github.com/camwebby/Cool-off.git
     ```
-2. Install NPM packages:
+2. Install bun packages:
     ```sh
-    npm install
+    bun install
     ```
 3. Register a new app on the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/) to get your `Client ID` and `Client Secret`.
 
@@ -44,7 +44,7 @@ To get a local copy up and running, follow these simple steps.
     
 5. Start the development server:
     ```sh
-    npm run dev
+    bun run dev
     ```
 
 ## Usage
