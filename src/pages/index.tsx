@@ -21,7 +21,7 @@ const Home: NextPage = () => {
         <div className="my-40" />
 
         <div className="z-20 mx-auto max-w-3xl p-4">
-          <h1 className="text-center text-5xl font-semibold text-white text-transparent md:text-7xl">
+          <h1 className="text-center text-5xl font-semibold text-transparent text-white md:text-7xl">
             <span
               className="text-gradient bg-clip-text text-transparent"
               style={{
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
           <div className="mt-10 flex justify-center">
             <Link
               className="glowing-box-button button text-xl font-medium text-white"
-              href={oauthLink}
+              href={oauthLink()}
             >
               Login with Spotify
             </Link>

@@ -1,10 +1,9 @@
-// TODO: Set as environment variables
-const requiredScopes =
-  "user-read-currently-playing+user-modify-playback-state+playlist-modify-public+playlist-read-private+playlist-modify-private";
-const oauthCallbackUrl = "http://localhost:3000/callback";
-const spotifyAppClientId = "b05d060109674d8e8035aa76a7dfa09f";
+import { serverSideEnv } from "@/consts/env";
+import { REQUIRED_SCOPES } from "@/consts/spotify";
 
-export const oauthLink = `https://accounts.spotify.com/authorize?client_id=${spotifyAppClientId}&response_type=code&redirect_uri=${oauthCallbackUrl}&scope=${requiredScopes}`;
+export const oauthLink = () => {
+  return `https://accounts.spotify.com/authorize?client_id=${serverSideEnv.CLIENT_ID}&response_type=code&redirect_uri=${serverSideEnv.CALLBACK_URI}&scope=${REQUIRED_SCOPES}`;
+};
 
 export const skipToNextTrack = async (accessToken: string) => {
   try {
@@ -17,6 +16,7 @@ export const skipToNextTrack = async (accessToken: string) => {
   } catch (error) {
     console.error(error);
     throw error;
+  }
 };
 
 export const getUsersPlaylistByExactName = async (
@@ -80,7 +80,13 @@ export const getTracksInPlaylist = async (
       accessToken,
       playlistName
     );
-    const id = playlist.id;
+    const id = playlist?.id;
+
+    console.log({ playlist });
+
+    if (!playlist) {
+      return [];
+    }
 
     const data = await fetch(
       `https://api.spotify.com/v1/playlists/${id}/tracks`,

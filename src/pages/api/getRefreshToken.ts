@@ -1,10 +1,12 @@
+import { serverSideEnv } from "@/consts/env";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const getRefreshToken = async (req: NextApiRequest, res: NextApiResponse) => {
-  const authKey = process.env.AUTH_KEY;
+  const authKey = serverSideEnv.AUTH_KEY;
+  const redirectUri = serverSideEnv.CALLBACK_URI;
 
-  if (!authKey) {
-    res.status(400).json("Auth key not found");
+  if (!authKey || !redirectUri) {
+    res.status(400).json("There was a problem retrieving refresh token");
   }
 
   const myHeaders = new Headers();
@@ -18,7 +20,7 @@ const getRefreshToken = async (req: NextApiRequest, res: NextApiResponse) => {
   const urlencoded = new URLSearchParams();
   urlencoded.append("grant_type", "authorization_code");
   urlencoded.append("code", req.headers.code as string);
-  urlencoded.append("redirect_uri", "http://localhost:3000/callback");
+  urlencoded.append("redirect_uri", redirectUri);
 
   const requestOptions: RequestInit = {
     method: "POST",
@@ -37,7 +39,7 @@ const getRefreshToken = async (req: NextApiRequest, res: NextApiResponse) => {
     data = await response.json();
     res.status(200).json(data);
   } else {
-    res.status(400).json("whoops");
+    res.status(400).json("There was a problem retrieving refresh token");
   }
 };
 

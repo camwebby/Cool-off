@@ -99,9 +99,7 @@ const Dashboard: NextPage = () => {
       try {
         addTrackToPlaylist(accessToken, playlist.playlistId, trackId);
         refetch();
-      } catch {
-      } finally {
-      }
+      } catch {}
     },
     [accessToken, playlist]
   );
@@ -189,7 +187,7 @@ const Dashboard: NextPage = () => {
 
             <div className="flex items-center gap-x-3 sm:gap-x-4">
               <button
-                className="rounded-full bg-gray-200 py-3 px-5 font-medium text-black duration-200 ease-in-out hover:bg-purple-500"
+                className="rounded-full bg-gray-200 px-5 py-3 font-medium text-black duration-200 ease-in-out hover:bg-purple-500"
                 onClick={() => setPlaylistNameModal(true)}
               >
                 <span className="hidden sm:block">Change playlist</span>
@@ -210,7 +208,7 @@ const Dashboard: NextPage = () => {
                 </svg>
               </button>
               <button
-                className="rounded-lg bg-purple-700 py-3 px-5 font-medium text-white duration-200 ease-in-out hover:bg-purple-500"
+                className="rounded-lg bg-purple-700 px-5 py-3 font-medium text-white duration-200 ease-in-out hover:bg-purple-500"
                 onClick={skipSong}
               >
                 <span className="hidden sm:block">

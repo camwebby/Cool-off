@@ -1,7 +1,8 @@
+import { serverSideEnv } from "@/consts/env";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const getAccessToken = async (req: NextApiRequest, res: NextApiResponse) => {
-  const authKey = process.env.AUTH_KEY;
+  const authKey = serverSideEnv.AUTH_KEY;
 
   if (!authKey) {
     res.status(400).json("Auth key not found");
