@@ -1,9 +1,9 @@
-import { serverSideEnv } from "@/consts/env";
+import { clientSideEnv, serverSideEnv } from "@/consts/env";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const getRefreshToken = async (req: NextApiRequest, res: NextApiResponse) => {
   const authKey = serverSideEnv.AUTH_KEY;
-  const redirectUri = serverSideEnv.CALLBACK_URI;
+  const redirectUri = clientSideEnv.CALLBACK_URI;
 
   if (!authKey || !redirectUri) {
     res.status(400).json("There was a problem retrieving refresh token");

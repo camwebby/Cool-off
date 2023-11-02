@@ -1,8 +1,8 @@
-import { serverSideEnv } from "@/consts/env";
+import { clientSideEnv } from "@/consts/env";
 import { REQUIRED_SCOPES } from "@/consts/spotify";
 
 export const oauthLink = () => {
-  return `https://accounts.spotify.com/authorize?client_id=${serverSideEnv.CLIENT_ID}&response_type=code&redirect_uri=${serverSideEnv.CALLBACK_URI}&scope=${REQUIRED_SCOPES}`;
+  return `https://accounts.spotify.com/authorize?client_id=${clientSideEnv.CLIENT_ID}&response_type=code&redirect_uri=${clientSideEnv.CALLBACK_URI}&scope=${REQUIRED_SCOPES}`;
 };
 
 export const skipToNextTrack = async (accessToken: string) => {
